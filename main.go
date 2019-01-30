@@ -49,10 +49,8 @@ func main() {
 	switch backendURL.Scheme {
 	case "s3":
 		d, err = newS3Director(session.New(), backendURL)
-	case "circleci":
-		d, err = newCircleCIDirector(backendURL)
 	default:
-		fmt.Fprintf(os.Stderr, "only S3 and circleci are supported currently\n")
+		fmt.Fprintf(os.Stderr, "only S3 is supported currently\n")
 		flag.Usage()
 		os.Exit(1)
 	}
